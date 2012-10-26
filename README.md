@@ -1,7 +1,7 @@
 UtilKit 1.0
 ===========
 
-A full ARC-based Utility Kit of functions useful to most iOS apps. UtilKit includes easy access to device information and support for the iPhone 5 four inch display as well as human-friendly dates. The functions are placed in categories for easy integration into your app.
+A full ARC-based Utility Kit of functions useful to many iOS apps. UtilKit includes easy access to device information and support for the iPhone 5 four inch display as well as human-friendly dates. The functions are placed in categories for easy integration into your app.
 
 While developing several iOS apps, I ended up creating a library of functions that every app needed to simplify development a little. UtilKit is these functions packaged into categories along with a tiny demo. I will continue to update UtilKit with new functions and categories as new devices are released and as I write and refactor code.
 

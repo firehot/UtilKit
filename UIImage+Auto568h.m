@@ -66,16 +66,9 @@
     // Check if the 568h image exists and load if so, otherwise load the original filename
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageNameMutable ofType:@"png"];
     if (imagePath)
-    {
-        // Remove the @2x to load the correct image - OS adds the modifier for us
-        [imageNameMutable replaceOccurrencesOfString:@"@2x" withString:@"" options:NSBackwardsSearch range:NSMakeRange(0, [imageNameMutable length])];
-        
         return [UIImage imageNamed568h:imageNameMutable];
-    }
     else
-    {
         return [UIImage imageNamed568h:imageName];
-    }
 }
 
 @end
