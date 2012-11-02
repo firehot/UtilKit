@@ -116,9 +116,18 @@
 - (NSInteger)daysSinceDate:(NSDate *)anotherDate
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger startDay = [calendar ordinalityOfUnit:NSDayCalendarUnit inUnit:NSEraCalendarUnit forDate:anotherDate];
-    NSInteger endDay = [calendar ordinalityOfUnit:NSDayCalendarUnit inUnit:NSEraCalendarUnit forDate:self];
-    return endDay - startDay;
+    NSCalendarUnit units = NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *startComps = [calendar components:units fromDate:anotherDate];
+    NSDateComponents *endComps = [calendar components:units fromDate:self];
+    
+    // set hours equal
+    [startComps setHour:12];
+    [endComps setHour:12];
+    
+    NSDate *startDate = [calendar dateFromComponents:startComps];
+    NSDate *endDate = [calendar dateFromComponents:endComps];
+    
+    return [[calendar components:NSDayCalendarUnit fromDate:startDate toDate:endDate options:0] day];
 }
 
 // Returns the number of days between the receiver and the current date using the current calendar. If the receiver is earlier than anotherDate, the return value is negative.
